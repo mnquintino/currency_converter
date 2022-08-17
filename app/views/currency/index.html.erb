@@ -1,0 +1,18 @@
+
+<label for="dinheiro">R$</label><input type="text" id="dinheiro" name="dinheiro" class="dinheiro form-control" style="display:inline-block" />
+<select name="select">
+  <% @currencies.each_with_index do |currency, index| %>
+    <option value=index><%= currency.country %>, <strong><%= currency.name%></strong> (<%= currency.initials %>)</option>
+  <% end %>
+</select>
+<button class="favorite styled"
+        type="button">
+    Converter
+</button>
+<select name="select">
+  <% @currencies.each_with_index do |currency, index| %>
+    <option value=index><%= currency.country %>, <strong><%= currency.name%></strong> (<%= currency.initials %>)</option>
+  <% end %>
+</select>
+<input type="text">
+ 
