@@ -9,20 +9,20 @@
 </head>
 <body>
   <div class="main">
-    <form action="" name="CurrencyConverter" method="get">
+    <form action="" name="CurrencyConverter">
       <input type="number" class="" name="value_to_convert">
       <select name="select">
         <% @currencies.each_with_index do |currency, index| %>
           <option value=currency_initial1><%= currency.country %>, <strong><%= currency.name%></strong> (<%= currency.initials %>)</option>
         <% end %>
       </select>
-      <button type="submit" value="convert">Converter</button>
+      <button type="submit" value="convert">Submit</button>
       <select name="select">
         <% @currencies.each_with_index do |currency, index| %>
           <option value=currency_initial2><%= currency.country %>, <strong><%= currency.name%></strong> (<%= currency.initials %>)</option>
         <% end %>
       </select>
-      <br><output type="number" class="" name="value_from_convert" value="value_from_convert" disabled>
+      <br><input type="number" class="" name="value_from_convert" value="value_from_convert" disabled>
     </form>
   </div>
 </body>

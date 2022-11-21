@@ -1,7 +1,12 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
+require 'csv'
+
+csv_file = File.read(Rails.root.join('lib', 'seeds', 'currencies.csv'))
+currencies = CSV.parse(csv_file, :headers => true, :encoding => 'ISO-8859-1')
+
+currencies.each do |row|
+  c = Currency.new
+  c.id = row['id']
+  c.name = row["name"]
+  c.initials = row["initials"]
+  c.save!
+end
