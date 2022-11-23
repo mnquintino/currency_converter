@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 class AddNumbers
   include Interactor
 
   def call
     context.sum = context.a + context.b
-  rescue => e
+  rescue StandardError => e
     context.fail!(error: e.message)
   end
 end

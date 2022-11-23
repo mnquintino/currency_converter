@@ -1,6 +1,7 @@
+# frozen_string_literal: true
+
 module CurrencyApi
   class Client
-
     include HTTParty
 
     base_uri 'https://free.currconv.com/api/v7/convert?'
