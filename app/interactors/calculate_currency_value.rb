@@ -1,34 +1,28 @@
 # frozen_string_literal: true
-require '/home/manara/Mentoria/Projeto_2/currency_converter/lib/currency_api/client.rb'
-require 'interactor'
 
 class CalculateCurrencyValue
   include Interactor
 
-  delegate :query, :value, to: :context
+  delegate :origin_id, :destiny_id, :value, to: :context
 
   def call
-    context.response = calculate_currency
-  rescue => e
-      context.fail!(errors: e.message)
+    context.money_exchange = calculate_currency
+  rescue StandardError => e
+    context.fail!(errors: e.message)
   end
 
   private
 
   def calculate_currency
-    @calculate_currency ||= (value * response).round(2)
+    exchange_rate = fail_on_failure! { CreateQuery.call(origin_id: origin_id, destiny_id: destiny_id) }.exchange_rate
+    @calculate_currency ||= (value * exchange_rate).round(2)
   end
 
-  def response
-    response = request
-    if response.success?
-      response.first[1]
-    else
-      "API indisponível"
-    end
-  end
+  def fail_on_failure!
+    interactor = yield
 
-  def request
-    @request ||= CurrencyApi::Client.new.request(query)
+    context.fail!(errors: interactor.errors) if interactor.failure?
+
+    interactor
   end
 end
