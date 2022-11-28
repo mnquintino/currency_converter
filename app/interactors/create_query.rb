@@ -8,6 +8,7 @@ class CreateQuery
   delegate :origin_id, :destiny_id, to: :context
 
   def call
+    binding.pry
     context.fail!(errors: 'API indisponível') unless request.success?
     context.exchange_rate = request.first[1]
   end
@@ -15,6 +16,7 @@ class CreateQuery
   private
 
   def query
+    binding.pry
     begin
       origin = Currency.find(origin_id).initials
       destiny = Currency.find(destiny_id).initials
