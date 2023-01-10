@@ -1,11 +1,13 @@
 # frozen_string_literal: true
+
 require 'rails_helper'
+
 describe CalculateCurrencyValue do
   describe '.call' do
-    let(:origin) { double(:currency, id: 1, initials: "BRL" ) }
+    let(:origin) { double(:currency, id: 1, initials: "BRL") }
     let(:destiny) { double(:currency, id: 2, initials: "USD") }
     let(:value) { 20 }
-    let(:query) { "BRL_USD"}
+    let(:query) { "BRL_USD" }
     let(:exchange_rate) { 0.18 }
     let(:response_body) { { 'exchange_rate' => exchange_rate } }
 
