@@ -7,10 +7,12 @@ class CreateQuery
 
   delegate :origin_id, :destiny_id, to: :context
 
-  def call
-    context.errors!(errors: 'API indisponível') unless request.success?
+  VALUE = 1
 
-    context.exchange_rate = request.first[1]
+  def call
+    context.fail!(errors: 'API indisponível') unless request.success?
+
+    context.exchange_rate = exchange_rate
   end
 
   private
@@ -27,5 +29,9 @@ class CreateQuery
 
   def request
     @request ||= CurrencyApi::Client.new.request(query)
+  end
+
+  def exchange_rate
+    request.first[VALUE]
   end
 end
