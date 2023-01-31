@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :posts
-  get 'currency' => 'currency#index'
+  root to: 'currency#index'
 end
