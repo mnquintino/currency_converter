@@ -8,14 +8,14 @@
   <title>Conversor de Moedas</title>
 </head>
 <body>
-  <div class="main">
+  <main>
     <form action="" name="CurrencyConverter" method="get">
-      <div class="input">
+      <div id="input">
         <strong>Insira o valor a converter</strong>
-        <input type="number" class="" name="value_to_convert">
+        <input type="number" class="input" name="value_to_convert">
       </div>
 
-      <div class="origin">
+      <div id="origin">
         <strong>Escolha a moeda de origem</strong>
         <select name="select">
           <% @currencies.each_with_index do |currency, index| %>
@@ -24,7 +24,7 @@
         </select>
       </div>
   
-      <div class="destiny">
+      <div id="destiny">
         <strong>Escolha a moeda de destino</strong>
         <select name="select">
           <% @currencies.each_with_index do |currency, index| %>
@@ -37,9 +37,9 @@
       <button type="submit" value="convert">Converter</button>
       <br>
 
-      <output type="number" class="" name="value_from_convert" value="value_from_convert" disabled>
+      <output type="number" class="output" name="value_from_convert" value="value_from_convert" disabled>
       
     </form>
-  </div>
+  </main>
 </body>
 </html>
