@@ -20,7 +20,7 @@
     background-color: #f2f8f9;
     padding: 20px;
     margin: 50px 400px;
-  }
+}
 
 nav {
     grid-area: navbar;
@@ -38,4 +38,11 @@ nav, aside, footer {
 	font-size: 1.5rem;
 	text-align: center;
 	padding: 2rem 0;
+}
+
+.container {
+	display: grid;
+	height: 100%;
+	grid-template-columns: repeat(2, 1fr 2fr);
+	grid-template-rows: 2fr 1fr;
 }

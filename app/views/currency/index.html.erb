@@ -8,38 +8,41 @@
   <title>Conversor de Moedas</title>
 </head>
 <body>
-  <main>
-    <form action="" name="CurrencyConverter" method="get">
-      <div id="input">
-        <strong>Insira o valor a converter</strong>
-        <input type="number" class="input" name="value_to_convert">
-      </div>
+  <div class="container" >
+    <main>
 
-      <div id="origin">
-        <strong>Escolha a moeda de origem</strong>
-        <select name="select">
-          <% @currencies.each_with_index do |currency, index| %>
-            <option value=currency_initial1><%= currency.country %> <strong><%= currency.name%></strong> (<%= currency.initials %>)</option>
-          <% end %>
-        </select>
-      </div>
-  
-      <div id="destiny">
-        <strong>Escolha a moeda de destino</strong>
-        <select name="select">
-          <% @currencies.each_with_index do |currency, index| %>
-            <option value=currency_initial2><%= currency.country %> <strong><%= currency.name%></strong> (<%= currency.initials %>)</option>
-          <% end %>
-        </select>
-      </div>
+      <form action="" name="CurrencyConverter" method="get">
+        <span>
+          <strong>Insira o valor a converter</strong>
+          <input type="number" class="input" name="value_to_convert">
+        </span>
 
-      <br><br>
-      <button type="submit" value="convert">Converter</button>
-      <br>
+        <span>
+          <strong>Escolha a moeda de origem</strong>
+          <select name="select">
+            <% @currencies.each_with_index do |currency, index| %>
+              <option value=currency_initial1><%= currency.country %> <strong><%= currency.name%></strong> (<%= currency.initials %>)</option>
+            <% end %>
+          </select>
+        </span>
+    
+        <span>
+          <strong>Escolha a moeda de destino</strong>
+          <select name="select">
+            <% @currencies.each_with_index do |currency, index| %>
+              <option value=currency_initial2><%= currency.country %> <strong><%= currency.name%></strong> (<%= currency.initials %>)</option>
+            <% end %>
+          </select>
+        </span>
 
-      <output type="number" class="output" name="value_from_convert" value="value_from_convert" disabled>
-      
-    </form>
-  </main>
+        <br><br>
+        <button type="submit" value="convert">Converter</button>
+        <br>
+
+        <output type="number" class="output" name="value_from_convert" value="value_from_convert" disabled>
+        
+      </form>
+    </main>
+  </div>
 </body>
 </html>
