@@ -10,38 +10,48 @@
 <body>
   <div class="container" >
     <main>
+      <div>
 
-      <form action="" name="CurrencyConverter" method="get">
-        <span>
-          <strong>Insira o valor a converter</strong>
-          <input type="number" class="input" name="value_to_convert">
-        </span>
+        <form action="" name="CurrencyConverter" method="get">
+          <span>
+            <label><strong>Insira o valor a converter: </strong>
+            <div>
+              <input inputmode="numeric" placeholder="0,00" id="input_value" class="input" name="value_to_convert">
+            </div>
+          </label></span>
 
-        <span>
-          <strong>Escolha a moeda de origem</strong>
-          <select name="select">
-            <% @currencies.each_with_index do |currency, index| %>
-              <option value=currency_initial1><%= currency.country %> <strong><%= currency.name%></strong> (<%= currency.initials %>)</option>
-            <% end %>
-          </select>
-        </span>
-    
-        <span>
-          <strong>Escolha a moeda de destino</strong>
-          <select name="select">
-            <% @currencies.each_with_index do |currency, index| %>
-              <option value=currency_initial2><%= currency.country %> <strong><%= currency.name%></strong> (<%= currency.initials %>)</option>
-            <% end %>
-          </select>
-        </span>
+          <span>
+            <label><strong>Escolha a moeda de origem</strong></label>
+            <div>
+              <select name="select">
+                <% @currencies.each_with_index do |currency, index| %>
+                  <option value=currency_initial1><%= currency.country %> <strong><%= currency.name%></strong> (<%= currency.initials %>)</option>
+                <% end %>
+              </select>
+            </div>
+          </span>
+      
+          <span>
+            <label><strong>Escolha a moeda de destino</strong></label>
+            <div>
+              <select name="select">
+                <% @currencies.each_with_index do |currency, index| %>
+                  <option value=currency_initial2><%= currency.country %> <strong><%= currency.name%></strong> (<%= currency.initials %>)</option>
+                <% end %>
+              </select>
+            </div>
+          </span>
 
-        <br><br>
-        <button type="submit" value="convert">Converter</button>
-        <br>
+          <div>
+            <button type="submit" value="convert">Converter</button>
+          </div>
 
-        <output type="number" class="output" name="value_from_convert" value="value_from_convert" disabled>
+        </form>
         
-      </form>
+      </div>
+      <div>
+        <output type="number" class="output" name="value_from_convert" value="value_from_convert" disabled>
+      </div>
     </main>
   </div>
 </body>

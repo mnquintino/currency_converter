@@ -14,12 +14,21 @@
  *= require_self
  */
 
- main {
-    grid-template-areas: main;
+/* * {
+  margin: auto;
+} */
+
+main {
+    /* grid-area: main; */
     border-radius: 5px;
     background-color: #f2f8f9;
     padding: 20px;
     margin: 50px 400px;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-rows: 2fr 1fr;
+    grid-template-columns: repeat(2, 1fr 2fr);
 }
 
 nav {
@@ -32,7 +41,7 @@ footer {
     background-color: #257D92;
 }
 
-nav, aside, footer {
+nav, footer {
 	color: #fff;
 	font-weight: 800;
 	font-size: 1.5rem;
@@ -41,8 +50,12 @@ nav, aside, footer {
 }
 
 .container {
-	display: grid;
 	height: 100%;
-	grid-template-columns: repeat(2, 1fr 2fr);
-	grid-template-rows: 2fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.container span {
+  grid-column: 5;
+  grid-row: 2;
 }
