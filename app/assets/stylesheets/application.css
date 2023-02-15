@@ -14,48 +14,129 @@
  *= require_self
  */
 
-/* * {
-  margin: auto;
-} */
+/* testes solo */
 
-main {
-    /* grid-area: main; */
-    border-radius: 5px;
-    background-color: #f2f8f9;
-    padding: 20px;
-    margin: 50px 400px;
-    display: grid;
-    align-items: center;
-    justify-content: center;
-    grid-template-rows: 2fr 1fr;
-    grid-template-columns: repeat(2, 1fr 2fr);
+body {
+  display: grid;
+  height: 100vh;
+  margin: 0;
+
+  grid-template-areas: 
+  "header"
+  "main"
+  "footer";
+
+  grid-template-rows: 60px 1fr 40px;
 }
 
-nav {
-    grid-area: navbar;
-    background-color: #253B4A;
-  }
+header {
+  grid-area: header;
+  background-color: cornflowerblue;
+  text-align: center;
+}
+
+form {
+  grid-area: main;
+
+  background-color: #f2f8f9;
+  padding: 20px;
+  margin: 50px 400px;
+
+  display: grid;
+  justify-content: space-around;
+  grid-template-columns: 200px 200px 200px;
+  grid-template-rows: 100px 50px 400px;
+}
+
+button {
+  padding: 1em;
+  background: lightgrey;
+  width: 100%;
+  border: 0;
+  border-radius: 25%;
+}
+
+button:hover, button:focus {
+  background: lightskyblue;
+  outline: 0;
+}
+
+.box4 {
+  display: grid;
+  justify-content: space-around;
+}
 
 footer {
-    grid-area: footer;
-    background-color: #257D92;
+  grid-area: footer;
+  background-color: #257D92;
+  text-align: center;
 }
 
-nav, footer {
-	color: #fff;
-	font-weight: 800;
-	font-size: 1.5rem;
-	text-align: center;
-	padding: 2rem 0;
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
 }
 
-.container {
-	height: 100%;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
 }
 
-.container span {
-  grid-column: 5;
-  grid-row: 2;
+.tooltip .tooltiptext::after {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
 }
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* p {
+  font-size: 1rem;
+  position: relative;
+  margin-bottom: 20px;
+}
+p:after {
+  content: attr(data-tooltip);
+  color: white;
+  background-color: black;
+  opacity: 0;
+  position: absolute;
+  z-index: 3;
+  border-radius: 5px;
+  width: 120px;
+  height: 20px;
+  font-size: .8rem;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  transition: opacity .25s ease-in-out;
+}
+p:hover::after {
+  opacity: 1;
+  visibility: visible;
+}
+[data-position="top"]::after {
+  top: -25px;
+  left: -23px;
+
+} */

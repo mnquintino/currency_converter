@@ -1,58 +1,71 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css"/>
-  <title>Conversor de Moedas</title>
-</head>
-<body>
-  <div class="container" >
-    <main>
-      <div>
-
-        <form action="" name="CurrencyConverter" method="get">
-          <span>
-            <label><strong>Insira o valor a converter: </strong>
-            <div>
-              <input inputmode="numeric" placeholder="0,00" id="input_value" class="input" name="value_to_convert">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"/>
+    <title>Conversor de Moedas</title>
+  </head>
+  <body>
+      <form action="" name="CurrencyConverter" method="get">
+        <span class="box box1">
+          <div class="nested">
+            <strong>Insira o valor a converter:</strong>
+            <div class="tooltip">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" id="IconChangeColor" height="15" width="15"><rect width="256" height="256" fill="none"></rect><circle cx="128" cy="128" r="96" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"></circle><polyline points="120 120 128 120 128 176 136 176" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"></polyline><circle cx="126" cy="84" r="10"></circle></svg>
+              <span class="tooltiptext">Adicione o valor em moeda para converter</span>
             </div>
-          </label></span>
-
-          <span>
-            <label><strong>Escolha a moeda de origem</strong></label>
-            <div>
-              <select name="select">
-                <% @currencies.each_with_index do |currency, index| %>
-                  <option value=currency_initial1><%= currency.country %> <strong><%= currency.name%></strong> (<%= currency.initials %>)</option>
-                <% end %>
-              </select>
-            </div>
-          </span>
-      
-          <span>
-            <label><strong>Escolha a moeda de destino</strong></label>
-            <div>
-              <select name="select">
-                <% @currencies.each_with_index do |currency, index| %>
-                  <option value=currency_initial2><%= currency.country %> <strong><%= currency.name%></strong> (<%= currency.initials %>)</option>
-                <% end %>
-              </select>
-            </div>
-          </span>
-
-          <div>
-            <button type="submit" value="convert">Converter</button>
           </div>
+          <div class="nested">
+            <input inputmode="numeric" placeholder="0,00" id="input_value" name="value_to_convert">
+          </div>
+        </span>
 
-        </form>
+        <span class="box2">
+          <div class="nested">
+            <strong>Escolha a moeda de origem</strong>
+            <div class="tooltip">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" id="IconChangeColor" height="15" width="15"><rect width="256" height="256" fill="none"></rect><circle cx="128" cy="128" r="96" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"></circle><polyline points="120 120 128 120 128 176 136 176" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"></polyline><circle cx="126" cy="84" r="10"></circle></svg>
+              <span class="tooltiptext">Selecione a moeda que será a base para conversão. Este valor será transformado na próxima moeda.</span>
+            </div>
+          </div>
+          <div class="nested">
+            <select name="select">
+              <% @currencies.each_with_index do |currency, index| %>
+                <option value=currency_initial1><%= currency.country %> <strong><%= currency.name%></strong> (<%= currency.initials %>)</option>
+              <% end %>
+            </select>
+          </div>
+        </span>
         
-      </div>
-      <div>
-        <output type="number" class="output" name="value_from_convert" value="value_from_convert" disabled>
-      </div>
-    </main>
-  </div>
-</body>
+        <span class="box3">
+          <div>
+            <strong>Escolha a moeda de destino</strong>
+            <div class="tooltip">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" id="IconChangeColor" height="15" width="15"><rect width="256" height="256" fill="none"></rect><circle cx="128" cy="128" r="96" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"></circle><polyline points="120 120 128 120 128 176 136 176" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"></polyline><circle cx="126" cy="84" r="10"></circle></svg>
+              <span class="tooltiptext">Selecione a moeda do reultado da conversão. Este valor será o correspondente à primeira moeda</span>
+            </div>
+          </div>
+          <div>
+            <select name="select">
+              <% @currencies.each_with_index do |currency, index| %>
+                <option value=currency_initial2><%= currency.country %> <strong><%= currency.name%></strong> (<%= currency.initials %>)</option>
+              <% end %>
+            </select>
+          </div>
+        </span>
+        <p>
+
+        <div class="box4">
+          <button type="submit" value="convert">Converter</button>
+        </div>
+
+        <div class="box5">
+          <output type="number" class="output" name="value_from_convert" value="value_from_convert" disabled>
+        </div>
+      </form>
+
+      
+  </body>
 </html>
