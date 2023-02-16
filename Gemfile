@@ -21,7 +21,6 @@ gem 'bootstrap', '~> 4.3.1'
 gem 'httparty', '~> 0.13.7'
 gem 'interactor'
 gem 'pry-rails'
-gem 'rspec-rails'
 gem 'rubocop-rails', require: false
 
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
@@ -60,6 +59,8 @@ gem 'bootsnap', require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri mingw x64_mingw]
+  gem 'rspec-rails', '~> 6.0.0'
+  gem 'factory_bot_rails'
 end
 
 group :development do

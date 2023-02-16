@@ -44,7 +44,7 @@ form {
 
   display: grid;
   justify-content: space-around;
-  grid-template-columns: 200px 200px 200px;
+  grid-template-columns: 200px 210px 210px;
   grid-template-rows: 100px 50px 400px;
 }
 

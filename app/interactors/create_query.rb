@@ -1,18 +1,26 @@
 # frozen_string_literal: true
 
-require '/home/manara/Mentoria/Projeto_2/currency_converter/lib/currency_api/client'
+require '/home/mnquintino/Mentoria/currency_converter/lib/currency_api/client'
 
 class CreateQuery
   include Interactor
 
   delegate :origin_id, :destiny_id, to: :context
 
+  VALUE = 1
+
   def call
+    binding.pry
     context.fail!(errors: 'API indisponível') unless request.success?
-    context.exchange_rate = request.first[1]
+
+    context.exchange_rate = exchange_rate
   end
 
   private
+
+  def exchange_rate
+    request.first[VALUE]
+  end
 
   def query
     begin
