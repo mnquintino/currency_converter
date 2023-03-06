@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet"/>
+    <%= javascript_include_tag 'script.js' %>
     <title>Conversor de Moedas</title>
   </head>
   <body>
@@ -18,7 +19,7 @@
             </div>
           </div>
           <div class="nested">
-            <input inputmode="numeric" placeholder="0,00" id="input_value" name="value_to_convert">
+            <input inputmode="numeric" placeholder="0,00" id="input_value" name="value_to_convert" onKeyUp="mascaraMoeda(this, event)">
           </div>
         </span>
 
@@ -58,14 +59,11 @@
         <p>
 
         <div class="box4">
-          <button type="submit" value="convert">Converter</button>
-        </div>
-
-        <div class="box5">
-          <output type="number" class="output" name="value_from_convert" value="value_from_convert" disabled>
+          <button type="submit" value="convert"> <%= link_to "Converter",currency_path, class:"button" %></button>
         </div>
       </form>
-
-      
+      <div class="box5">
+          <output type="number" class="output" name="value_from_convert" value="value_from_convert" disabled>
+      </div>   
   </body>
 </html>

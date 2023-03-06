@@ -1,16 +1,16 @@
-id,initials,name
-1,BRL,Real
-2,USD,Dólar Americano
-3,EUR,Euro
-4,GBP,Libra esterlina
-5,JPY,Iene
-6,AUD,Dólar Australiano
-7,CHF,FrancoSuíço
-8,CAD,Dólar Canadense
-9,ARS,Peso Argentino
-10,TRY,Lira Turca
-11,PYG,Guarani Paraguaio
-12,COP,Peso Colombiano
-13,UYU,Peso Uruguaio
-14,MXN,Peso Mexicano
-15,PEN,Novo Sol Peruano
+initials,name
+BRL,Real
+USD,Dólar Americano
+EUR,Euro
+GBP,Libra esterlina
+JPY,Iene
+AUD,Dólar Australiano
+CHF,FrancoSuíço
+CAD,Dólar Canadense
+ARS,Peso Argentino
+TRY,Lira Turca
+PYG,Guarani Paraguaio
+COP,Peso Colombiano
+UYU,Peso Uruguaio
+MXN,Peso Mexicano
+PEN,Novo Sol Peruano
